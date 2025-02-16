@@ -37,6 +37,14 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
+                                    <td class="d-flex">
+                                        <a href="/items/edit/{{ $item->id }}" class="btn btn-sm btn-primary">編集</a>
+                                        <form action="{{ url('/items/'. $item->id)}}" class="mx-2" method="post" onsubmit="return window.confirm('本当に削除しますか？')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-warning">削除</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

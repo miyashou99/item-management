@@ -54,4 +54,50 @@ class ItemController extends Controller
 
         return view('item.add');
     }
+
+    public function edit($id) {
+        $item = Item::find($id);
+
+        return view('items.edit')->with([
+            'item' => $item,
+        ]);
+    }
+
+    public function itemEdit(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            // バリデーション
+            $this->validate($request, [
+                'name' => 'required|max:100',
+            ]);
+
+            // Item::where('id' , '=', $request->id)->first()->update;
+            // // 商品編集
+            // $item->update([
+            //     'user_id' => Auth::user()->id,
+            //     'name' => $request->name,
+            //     'type' => $request->type,
+            //     'detail' => $request->detail,
+            $item = Item::where('id', '=', $request->id)->first();
+            $item->update([
+                'user_id' => Auth::user()->id,
+                'name' => $request->name,
+                'type' => $request->type,
+                'detail' => $request->detail,
+            ]);
+
+            return redirect('/items');
+        }
+
+        return view('item.edit',['item' =>Item::where('id' , '=', $request->id)->first()]);
+    }
+
+    public function itemDelete($id)
+    {
+        // 既存のレコードを取得して削除する
+        $item = Item::where('id' , '=', $id)->first();
+        $item->delete();
+
+        return redirect('/items');
+    }
 }
