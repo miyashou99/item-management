@@ -39,6 +39,8 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'type' => 'max:100',
+                'detail' => 'max:500',
             ]);
 
             // 商品登録
@@ -69,6 +71,8 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'type' => 'max:100',
+                'detail' => 'max:500',
             ]);
 
             // Item::where('id' , '=', $request->id)->first()->update;
