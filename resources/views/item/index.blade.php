@@ -28,6 +28,8 @@
                                 <th>名前</th>
                                 <th>種別</th>
                                 <th>詳細</th>
+                                <th>日付</th>
+                                <th>数量</th>
                             </tr>
                         </thead>
                         <tbody>

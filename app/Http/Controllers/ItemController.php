@@ -40,8 +40,8 @@ class ItemController extends Controller
             $this->validate($request, [
                 'name' => 'required|max:100',
                 'type' => 'max:100',
-                'detail' => 'max:500',
-            ]);
+                'detail' => 'max:200',
+                                      ]);
 
             // 商品登録
             Item::create([
@@ -49,6 +49,8 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
+                'date' => $request->date,
+                'quantity' => $request->quantity,
             ]);
 
             return redirect('/items');
@@ -88,6 +90,8 @@ class ItemController extends Controller
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
+                'date' => $request->date,
+                'quantity' => $request->quantity,
             ]);
 
             return redirect('/items');

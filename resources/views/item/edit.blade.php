@@ -37,6 +37,14 @@
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" value="{{ $item->detail }}" placeholder="詳細説明">
                         </div>
+                        <div class="form-group">
+                            <label for="date">購入日</label>
+                            <input type="date" class="form-control" id="date" name="date" value="{{ $item->date }}" placeholder="購入日">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">数量</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" value="{{ $item->quantity }}" placeholder="数量">
+                        </div>
                     </div>
 
                     <div class="card-footer">
